@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check /Users/frankwang/sde/projects/CanadaImmigration/js/app.js)",
+      "Bash(node --check /Users/frankwang/sde/projects/CanadaImmigration/js/calculators.js)",
+      "Bash(node --check /Users/frankwang/sde/projects/CanadaImmigration/js/data.js)",
+      "Bash(python3 -m py_compile /Users/frankwang/sde/projects/CanadaImmigration/scraper/scraper.py)",
+      "Bash(pip3 --version)",
+      "Bash(pip --version)",
+      "Bash(pip3 install -r requirements.txt -q)",
+      "Bash(python3 -m venv .venv)",
+      "Bash(.venv/bin/pip install -q -r requirements.txt)",
+      "Bash(.venv/bin/python scraper.py)",
+      "Bash(.venv/bin/python -:*)",
+      "Bash(.venv/bin/python scraper.py --ee)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{time_total}s\" --max-time 10 \"https://www.canada.ca/en.html\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{time_total}s\" --max-time 15 -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\" \"https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json\")",
+      "Bash(curl -s -w \"\\\\nsize=%{size_download} time=%{time_total}s\\\\n\" --max-time 15 -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\" \"https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json\")",
+      "Bash(curl -s --http1.1 --compressed --max-time 15 -H \"User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\" -o /dev/null -w \"%{http_code} %{size_download}bytes %{time_total}s\\\\n\" \"https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json\")",
+      "Bash(node -e \":*)",
+      "Bash(node seed_ee.js)",
+      "Bash(source venv/bin/activate)",
+      "Bash(python scraper.py)",
+      "Bash(python3 -c \"import requests, bs4; print\\(''deps ok''\\)\")",
+      "Bash(python3 -m venv venv)",
+      "Bash(venv/bin/pip install -q -r requirements.txt)",
+      "Bash(venv/bin/python scraper.py)",
+      "Bash(npm install)",
+      "Bash(node scraper.js)",
+      "Bash(node scraper.js --bcpnp --oinp)",
+      "Bash(node -e \"const c=require\\(''../data/_cache.json''\\); console.log\\(''EE:'', c.ee?.length, c.ee?.at\\(-1\\)?.date, ''~'', c.ee?.at\\(0\\)?.date\\); console.log\\(''BCPNP:'', c.bcpnp?.length, c.bcpnp?.at\\(-1\\)?.date, ''~'', c.bcpnp?.at\\(0\\)?.date\\); console.log\\(''OINP:'', c.oinp?.length, c.oinp?.at\\(-1\\)?.date, ''~'', c.oinp?.at\\(0\\)?.date\\);\")",
+      "Bash(curl -s \"https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/invitations-to-apply\")",
+      "Bash(curl -s \"https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/archives\")",
+      "Bash(curl -s \"https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program-4374589fc5bd099f34c82a0e2623f93d/invitations-to-apply\")",
+      "Bash(curl -sI \"https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-invitations-to-apply-si-2025-pdf\")",
+      "Bash(grep -n \"''202[45]\" /Users/frankwang/sde/projects/CanadaImmigration/js/data.js)",
+      "Bash(npm install pdf-parse --save)",
+      "Bash(node --version)",
+      "Bash(node -e \"const m=require\\(''pdf-parse''\\); console.log\\(JSON.stringify\\(Object.keys\\(m\\)\\)\\)\")",
+      "Bash(node scraper.js --bcpnp)",
+      "Bash(node -e \"const c=require\\(''../data/_cache.json''\\); const b=c.bcpnp; console.log\\(''最新5条:''\\); b.slice\\(0,5\\).forEach\\(r=>console.log\\(r.date, r.type, r.cutoff, r.invited\\)\\);\")",
+      "Bash(node -e \"const c=require\\(''../data/_cache.json''\\); const b=c.bcpnp; console.log\\(''最新10条:''\\); b.slice\\(0,10\\).forEach\\(r=>console.log\\(r.date, ''|'', r.type, ''| cutoff:'', r.cutoff, ''| invited:'', r.invited\\)\\);\")",
+      "Bash(node scraper.js --ee)",
+      "Bash(node -e \"const c=require\\(''../data/_cache.json''\\); c.ee.slice\\(0,8\\).forEach\\(r=>console.log\\(r.date,''|'',r.type,''|'',r.cutoff,''|'',r.invited\\)\\)\")"
+    ],
+    "additionalDirectories": [
+      "/Users/frankwang/.claude/projects/-Users-frankwang-sde-projects-CanadaImmigration"
+    ]
+  }
+}

@@ -1,0 +1,739 @@
+/* ============================================================
+   styles.css — 加拿大移民分数计算器 UI 样式
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   CSS Variables
+   ---------------------------------------------------------- */
+:root {
+  --red:        #D52B1E;
+  --red-dark:   #A8201A;
+  --red-light:  #FDECEA;
+  --blue:       #1B3A6B;
+  --blue-light: #EEF2F9;
+  --bg:         #F4F6F9;
+  --card:       #FFFFFF;
+  --border:     #E0E4EB;
+  --text:       #2C3E50;
+  --text-light: #7F8C8D;
+  --green:      #27AE60;
+  --green-bg:   #EAF7EF;
+  --orange:     #E67E22;
+  --orange-bg:  #FEF5EB;
+  --yellow:     #F39C12;
+  --shadow:     0 2px 12px rgba(0,0,0,0.08);
+  --radius:     10px;
+  --radius-sm:  6px;
+  --transition: 0.2s ease;
+}
+
+/* ----------------------------------------------------------
+   Reset & Base
+   ---------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 15px; scroll-behavior: smooth; }
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "黑体", -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--blue); text-decoration: none; }
+
+/* ----------------------------------------------------------
+   Header
+   ---------------------------------------------------------- */
+.site-header {
+  background: var(--red);
+  color: #fff;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.maple-leaf {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.header-logo h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.header-logo p {
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-top: 1px;
+}
+
+.header-disclaimer {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  background: rgba(255,255,255,0.15);
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------------------------
+   Tab Navigation
+   ---------------------------------------------------------- */
+.tab-nav {
+  background: var(--blue);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.tab-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab-nav-inner::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+.tab-btn.active {
+  color: #fff;
+  border-bottom-color: var(--red);
+  background: rgba(255,255,255,0.1);
+}
+
+.tab-icon { font-size: 1rem; }
+
+/* ----------------------------------------------------------
+   Main Content
+   ---------------------------------------------------------- */
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+/* ----------------------------------------------------------
+   Tab Panels
+   ---------------------------------------------------------- */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.panel-header {
+  margin-bottom: 24px;
+}
+
+.panel-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.panel-header p {
+  color: var(--text-light);
+  font-size: 0.88rem;
+}
+
+/* ----------------------------------------------------------
+   Calculator Layout (2 columns)
+   ---------------------------------------------------------- */
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+.form-column { display: flex; flex-direction: column; gap: 16px; }
+
+.result-column {
+  position: sticky;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ----------------------------------------------------------
+   Form Cards
+   ---------------------------------------------------------- */
+.form-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.form-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--red-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.form-row:last-child { margin-bottom: 0; }
+
+.form-row > label:first-child {
+  min-width: 160px;
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------
+   Form Inputs
+   ---------------------------------------------------------- */
+input[type="number"],
+input[type="text"],
+select {
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(213,43,30,0.12);
+}
+
+.input-sm { width: 100px; }
+.input-full { flex: 1; min-width: 0; }
+.input-hint { font-size: 0.78rem; color: var(--text-light); white-space: nowrap; }
+
+/* Radio & Checkbox */
+.radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--red);
+}
+
+/* Language skills grid */
+.lang-inputs { margin-top: 10px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-item label {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.skill-item input { width: 100%; }
+
+.clb-preview {
+  font-size: 0.75rem;
+  color: var(--red);
+  font-weight: 600;
+  min-height: 18px;
+  display: block;
+}
+
+.hidden { display: none !important; }
+
+/* ----------------------------------------------------------
+   Score Card
+   ---------------------------------------------------------- */
+.score-card {
+  background: linear-gradient(135deg, var(--blue) 0%, #2c5282 100%);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(27,58,107,0.3);
+}
+
+.score-label {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.score-badge {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+}
+
+.score-card.score-high    { background: linear-gradient(135deg, #1a7f4a 0%, #27ae60 100%); }
+.score-card.score-medium  { background: linear-gradient(135deg, #c47600 0%, #e67e22 100%); }
+.score-card.score-low     { background: linear-gradient(135deg, #a8201a 0%, #d52b1e 100%); }
+.score-card.score-default { background: linear-gradient(135deg, var(--blue) 0%, #2c5282 100%); }
+
+/* ----------------------------------------------------------
+   Breakdown Card
+   ---------------------------------------------------------- */
+.breakdown-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.breakdown-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+
+.breakdown-section {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.breakdown-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.breakdown-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.section-score {
+  font-size: 0.82rem;
+  color: var(--red);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.breakdown-items { padding-left: 8px; }
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-light);
+  padding: 2px 0;
+}
+
+.breakdown-item span:last-child {
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ----------------------------------------------------------
+   Advice Card
+   ---------------------------------------------------------- */
+.advice-card {
+  background: var(--blue-light);
+  border: 1px solid #c8d4ea;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.advice-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+.advice-text {
+  font-size: 0.85rem;
+  color: var(--blue);
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------
+   OINP Stream Results
+   ---------------------------------------------------------- */
+.oinp-result-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.oinp-stream-item {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+}
+
+.oinp-stream-item:last-child { margin-bottom: 0; }
+
+.oinp-stream-item.eligible {
+  background: var(--green-bg);
+  border-color: #a8e6c1;
+}
+
+.oinp-stream-item.not-eligible {
+  background: #fafafa;
+  border-color: var(--border);
+}
+
+.stream-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.stream-badge {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.stream-name { color: var(--text); }
+
+.stream-missing {
+  margin-top: 6px;
+  padding-left: 24px;
+}
+
+.stream-missing li {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  list-style: none;
+  padding: 1px 0;
+}
+
+.stream-missing li::before {
+  content: "• ";
+  color: var(--orange);
+}
+
+.oinp-placeholder {
+  color: var(--text-light);
+  font-size: 0.88rem;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------
+   History Layout
+   ---------------------------------------------------------- */
+.history-layout { display: flex; flex-direction: column; gap: 20px; }
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+/* Chart */
+.chart-container {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  height: 320px;
+  position: relative;
+}
+
+/* Table */
+.history-table-wrap {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.history-table thead {
+  background: var(--blue);
+  color: #fff;
+}
+
+.history-table th {
+  padding: 11px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.history-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.history-table tbody tr:last-child { border-bottom: none; }
+.history-table tbody tr:hover { background: var(--bg); }
+
+.history-table td {
+  padding: 10px 16px;
+  color: var(--text);
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.type-badge.cec    { background: #e8f4ff; color: #1565C0; }
+.type-badge.pnp    { background: #f3e8ff; color: #6A1B9A; }
+.type-badge.general{ background: var(--red-light); color: var(--red-dark); }
+.type-badge.stem   { background: #e8fff0; color: #1B5E20; }
+.type-badge.tech   { background: #fff8e1; color: #E65100; }
+.type-badge.hcp    { background: #e0f7fa; color: #006064; }
+
+.cutoff-value {
+  font-weight: 700;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.invited-value {
+  color: var(--text-light);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------------------------------------
+   Footer
+   ---------------------------------------------------------- */
+.site-footer {
+  background: #1a2332;
+  color: rgba(255,255,255,0.65);
+  padding: 20px 0;
+  margin-top: 0;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.footer-inner strong { color: rgba(255,255,255,0.85); }
+
+/* ----------------------------------------------------------
+   Progress Bar (分数段可视化)
+   ---------------------------------------------------------- */
+.score-progress {
+  margin-top: 12px;
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-progress-bar {
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* ----------------------------------------------------------
+   Responsive
+   ---------------------------------------------------------- */
+@media (max-width: 960px) {
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .result-column {
+    position: static;
+  }
+
+  .history-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .header-disclaimer { display: none; }
+
+  .main-content { padding: 16px 12px 40px; }
+
+  .form-row > label:first-child { min-width: unset; width: 100%; }
+
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .history-stats { grid-template-columns: repeat(2, 1fr); }
+
+  .tab-btn span:last-child { display: none; }
+  .tab-icon { font-size: 1.2rem; }
+}
+
+/* ----------------------------------------------------------
+   Scrollbar (WebKit)
+   ---------------------------------------------------------- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+/* ----------------------------------------------------------
+   Animations
+   ---------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tab-panel.active { animation: fadeIn 0.22s ease; }
+
+.score-value { transition: all 0.3s ease; }

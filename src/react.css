@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-screen bg-zinc-100 text-zinc-800;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(220, 38, 38, 0.12), transparent 34%),
+      radial-gradient(circle at 100% 0%, rgba(185, 28, 28, 0.14), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(239, 68, 68, 0.1), transparent 45%);
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply mx-auto max-w-7xl px-4 py-8 md:px-8;
+  }
+
+  .app-header {
+    @apply rounded-3xl border border-white/60 bg-gradient-to-r from-red-800 via-red-700 to-rose-700 px-6 py-7 text-white shadow-soft;
+  }
+
+  .app-header h1 {
+    @apply m-0 text-3xl font-bold tracking-tight;
+  }
+
+  .app-header p {
+    @apply mt-2 text-sm text-rose-100;
+  }
+
+  .tab-bar {
+    @apply mt-6 flex flex-wrap gap-2;
+  }
+
+  .tab-bar button {
+    @apply rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-red-300 hover:text-red-700 hover:shadow;
+  }
+
+  .tab-bar button.active {
+    @apply border-transparent bg-gradient-to-r from-red-700 to-red-600 text-white shadow;
+  }
+
+  .panel {
+    @apply mt-5;
+  }
+
+  .two-col {
+    @apply grid grid-cols-1 gap-4 xl:grid-cols-[1.35fr_1fr];
+  }
+
+  .card {
+    @apply rounded-2xl border border-zinc-200/80 bg-white/95 p-5 shadow-soft backdrop-blur;
+  }
+
+  .card h2 {
+    @apply mb-4 text-xl font-semibold text-zinc-900;
+  }
+
+  .card h3 {
+    @apply mb-3 mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500;
+  }
+
+  .grid-2 {
+    @apply grid grid-cols-1 gap-3 md:grid-cols-2;
+  }
+
+  .grid-4 {
+    @apply grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4;
+  }
+
+  .field {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .field span {
+    @apply text-xs font-medium text-zinc-600;
+  }
+
+  .field input,
+  .field select {
+    @apply h-10 rounded-xl border border-zinc-200 bg-zinc-50 px-3 text-sm text-zinc-800 outline-none transition-all focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200;
+  }
+
+  .checkbox {
+    @apply flex items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm text-zinc-700;
+  }
+
+  .checkbox input {
+    @apply h-4 w-4 rounded border-zinc-300 text-red-700 focus:ring-red-500;
+  }
+
+  .result {
+    @apply border-red-200/70 bg-gradient-to-br from-red-50 via-white to-rose-50 text-zinc-800;
+  }
+
+  .result h2 {
+    @apply text-zinc-900;
+  }
+
+  .result ul {
+    @apply space-y-2 text-sm text-zinc-700;
+  }
+
+  .big-number {
+    @apply mb-4 text-5xl font-black tracking-tight text-red-700;
+  }
+
+  .muted {
+    @apply mt-3 text-xs text-zinc-500;
+  }
+
+  .history-table {
+    @apply w-full overflow-hidden rounded-xl border border-zinc-200;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .history-table thead th {
+    @apply bg-red-800 px-3 py-3 text-left text-xs font-semibold uppercase tracking-wide text-red-50;
+  }
+
+  .history-table tbody td {
+    @apply border-t border-zinc-100 px-3 py-3 text-sm text-zinc-700;
+  }
+
+  .history-table tbody tr:nth-child(odd) {
+    @apply bg-red-50/40;
+  }
+}

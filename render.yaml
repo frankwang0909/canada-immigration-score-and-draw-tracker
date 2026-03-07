@@ -1,0 +1,10 @@
+services:
+  - type: cron
+    name: canada-immigration-scraper
+    runtime: node
+    plan: starter
+    region: oregon
+    schedule: "15 16 * * *"
+    autoDeploy: true
+    buildCommand: npm --prefix scraper install
+    startCommand: npm --prefix scraper start
