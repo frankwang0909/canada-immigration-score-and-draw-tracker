@@ -1,6 +1,82 @@
-# Canada Immigration Score & Draw Tracker（React + TypeScript + Tailwind）
+# Canada Immigration Score & Draw Tracker (React + TypeScript + Tailwind)
 
-前端已重构为 **React + TypeScript + Vite + Tailwind CSS**。
+## Overview
+
+This project is a practical tracker for major Canadian immigration pathways, combining score calculators and draw-history data in one place. It includes a **React + TypeScript + Vite + Tailwind CSS** frontend for interactive calculation and visualization, plus a Node.js scraper that regularly pulls official EE / BCPNP / OINP draw updates. The frontend is typically deployed to Vercel, while scheduled scraping runs on Render Cron.
+
+## Features
+
+1. Federal EE CRS calculator (updated for rules after 2025-03-25)
+2. BCPNP Skills Immigration 200-point calculator
+3. OINP EOI calculator
+4. EE invitation history
+5. BCPNP invitation history
+6. OINP invitation history
+7. Automated official draw-history scraping (EE / BCPNP / OINP)
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Scrape Draw History
+
+```bash
+# Run scraper once (updates data/history_data.json and public/data/history_data.json)
+npm run scrape:history
+
+# Install a daily cron job at 08:15
+npm run scrape:history:install-cron
+```
+
+Optional parameters:
+
+- `CRON_EXPR="0 7 * * *"` custom cron expression
+- `NODE_BIN=/opt/homebrew/bin/node` custom node path
+
+## Deployment
+
+### Vercel (Frontend)
+
+This repo includes `vercel.json`, so you can import and deploy directly on Vercel:
+
+- Build Command: `npm run build`
+- Output Directory: `dist`
+
+### Render (Scheduled Scraper)
+
+This repo includes `render.yaml` with a Cron Job service:
+
+- Name: `canada-immigration-score-and-draw-tracker-scraper`
+- Schedule: `15 16 * * *` (UTC, once per day)
+- Build Command: `npm --prefix scraper install`
+- Start Command: `npm --prefix scraper start`
+
+## Project Structure
+
+- `src/App.tsx`: main UI and state management
+- `src/lib/calculators.ts`: EE / BCPNP / OINP calculator logic (TypeScript)
+- `src/lib/history.ts`: historical draw data
+- `src/react.css`: Tailwind entry and component-layer styles
+- `tailwind.config.js`: Tailwind config
+- `postcss.config.js`: PostCSS config
+
+---
+
+# 中文版
+
+## 概述
+
+这是一个面向加拿大主流移民通道的实用追踪项目，把算分工具和邀请历史数据整合在同一站点。项目包含一个基于 **React + TypeScript + Vite + Tailwind CSS** 的前端，用于交互式计算与展示；同时包含 Node.js 爬虫，定期抓取 EE / BCPNP / OINP 官网邀请数据。常见部署方式是前端发布到 Vercel，定时爬虫运行在 Render Cron。
 
 ## 功能
 
