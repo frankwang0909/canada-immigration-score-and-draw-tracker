@@ -188,7 +188,7 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <h1>加拿大移民分数计算器</h1>
+        <h1>Canada Immigration Score & Draw Tracker</h1>
         <p className="muted">
           邀请数据来源: {historySource === 'live' ? '官网抓取' : historySource === 'fallback' ? '内置兜底' : '加载中...'}
           {historyUpdated ? ` · 更新于 ${historyUpdated}` : ''}

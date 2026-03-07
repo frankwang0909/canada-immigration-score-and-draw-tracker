@@ -1,4 +1,4 @@
-# 加拿大移民分数计算器（React + TypeScript + Tailwind）
+# Canada Immigration Score & Draw Tracker（React + TypeScript + Tailwind）
 
 前端已重构为 **React + TypeScript + Vite + Tailwind CSS**。
 
@@ -54,7 +54,7 @@ npm run scrape:history:install-cron
 
 仓库已提供 `render.yaml`，包含一个 Cron Job 服务：
 
-- Name: `canada-immigration-scraper`
+- Name: `canada-immigration-score-and-draw-tracker-scraper`
 - Schedule: `15 16 * * *`（UTC，每天一次）
 - Build Command: `npm --prefix scraper install`
 - Start Command: `npm --prefix scraper start`

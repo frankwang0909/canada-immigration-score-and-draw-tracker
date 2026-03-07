@@ -1,6 +1,6 @@
 services:
   - type: cron
-    name: canada-immigration-scraper
+    name: canada-immigration-score-and-draw-tracker-scraper
     runtime: node
     plan: starter
     region: oregon

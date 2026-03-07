@@ -1,5 +1,5 @@
 {
-  "name": "canada-immigration-scraper",
+  "name": "canada-immigration-score-and-draw-tracker-scraper",
   "version": "1.0.0",
   "description": "加拿大移民历史邀请数据爬虫",
   "main": "scraper.js",
