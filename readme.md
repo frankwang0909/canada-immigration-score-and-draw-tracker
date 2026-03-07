@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a practical tracker for major Canadian immigration pathways, combining score calculators and draw-history data in one place. It includes a **React + TypeScript + Vite + Tailwind CSS** frontend for interactive calculation and visualization, plus a Node.js scraper that regularly pulls official EE / BCPNP / OINP draw updates. The frontend is typically deployed to Vercel, while scheduled scraping runs on Render Cron.
+This project is a practical tracker for major Canadian immigration pathways, combining score calculators and draw-history data in one place. It includes a **React + TypeScript + Vite + Tailwind CSS** frontend for interactive calculation and visualization, plus a Node.js scraper that regularly pulls official EE / BCPNP / OINP draw updates. The frontend is typically deployed to Vercel, while scheduled scraping runs on GitHub Actions.
 
 ## Features
 
@@ -52,14 +52,13 @@ This repo includes `vercel.json`, so you can import and deploy directly on Verce
 - Build Command: `npm run build`
 - Output Directory: `dist`
 
-### Render (Scheduled Scraper)
+### GitHub Actions (Scheduled Scraper)
 
-This repo includes `render.yaml` with a Cron Job service:
+This repo includes a scheduled workflow at `.github/workflows/scrape-history.yml`:
 
-- Name: `canada-immigration-score-and-draw-tracker-scraper`
 - Schedule: `15 16 * * *` (UTC, once per day)
-- Build Command: `npm --prefix scraper install`
-- Start Command: `npm --prefix scraper start`
+- Manual run: `Actions` -> `Scrape Immigration History` -> `Run workflow`
+- Auto commit/push: enabled via `permissions: contents: write`
 
 ## Project Structure
 
@@ -76,7 +75,7 @@ This repo includes `render.yaml` with a Cron Job service:
 
 ## 概述
 
-这是一个面向加拿大主流移民通道的实用追踪项目，把算分工具和邀请历史数据整合在同一站点。项目包含一个基于 **React + TypeScript + Vite + Tailwind CSS** 的前端，用于交互式计算与展示；同时包含 Node.js 爬虫，定期抓取 EE / BCPNP / OINP 官网邀请数据。常见部署方式是前端发布到 Vercel，定时爬虫运行在 Render Cron。
+这是一个面向加拿大主流移民通道的实用追踪项目，把算分工具和邀请历史数据整合在同一站点。项目包含一个基于 **React + TypeScript + Vite + Tailwind CSS** 的前端，用于交互式计算与展示；同时包含 Node.js 爬虫，定期抓取 EE / BCPNP / OINP 官网邀请数据。常见部署方式是前端发布到 Vercel，定时爬虫运行在 GitHub Actions。
 
 ## 功能
 
@@ -126,14 +125,13 @@ npm run scrape:history:install-cron
 - Build Command: `npm run build`
 - Output Directory: `dist`
 
-### Render（定时爬虫）
+### GitHub Actions（定时爬虫）
 
-仓库已提供 `render.yaml`，包含一个 Cron Job 服务：
+仓库已提供定时工作流 `.github/workflows/scrape-history.yml`：
 
-- Name: `canada-immigration-score-and-draw-tracker-scraper`
 - Schedule: `15 16 * * *`（UTC，每天一次）
-- Build Command: `npm --prefix scraper install`
-- Start Command: `npm --prefix scraper start`
+- 手动触发：`Actions` -> `Scrape Immigration History` -> `Run workflow`
+- 自动提交回仓库：已通过 `permissions: contents: write` 启用
 
 ## 目录结构
 
