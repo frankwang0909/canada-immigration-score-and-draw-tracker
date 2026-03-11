@@ -1163,6 +1163,18 @@
   ],
   "bcpnp": [
     {
+      "date": "2026-03-10",
+      "type": "创业移民(Base)",
+      "cutoff": 117,
+      "invited": 7
+    },
+    {
+      "date": "2026-03-10",
+      "type": "创业移民(区域)",
+      "cutoff": 129,
+      "invited": null
+    },
+    {
       "date": "2026-02-11",
       "type": "Tech Pilot",
       "cutoff": 135,
