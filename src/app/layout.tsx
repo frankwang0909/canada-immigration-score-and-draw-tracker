@@ -125,6 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="app-shell">
           <header className="app-header">
             <h1>Canada Immigration Score &amp; Draw Tracker</h1>
+            <p className="header-subtitle">加拿大移民算分 &amp; 邀请历史追踪</p>
           </header>
           <NavBar />
           <main>{children}</main>

@@ -29,6 +29,10 @@
     @apply mt-2 text-sm text-rose-100;
   }
 
+  .header-subtitle {
+    @apply mt-1 text-base font-medium text-rose-200;
+  }
+
   .tab-bar {
     @apply mt-6 flex flex-wrap gap-2;
   }
