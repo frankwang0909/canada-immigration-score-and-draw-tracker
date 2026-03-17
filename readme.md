@@ -1,31 +1,28 @@
-# Canada Immigration Score & Draw Tracker (React + TypeScript + Tailwind)
+# Canada Immigration Score & Draw Tracker
 
 ## Overview
 
-This project is a practical tracker for major Canadian immigration pathways, combining score calculators and draw-history data in one place. It includes a **React + TypeScript + Vite + Tailwind CSS** frontend for interactive calculation and visualization, plus a Node.js scraper that regularly pulls official EE / BCPNP / OINP draw updates. The frontend is typically deployed to Vercel, while scheduled scraping runs on GitHub Actions.
+A practical tracker for major Canadian immigration pathways, combining score calculators and draw-history data in one place. Built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS**, with a Node.js scraper that pulls official EE / BCPNP / OINP draw updates daily. Deployed to Vercel; scheduled scraping runs on GitHub Actions.
 
 ## Features
 
-1. Federal EE CRS calculator (updated for rules after 2025-03-25)
-2. BCPNP Skills Immigration 200-point calculator
-3. OINP EOI calculator
-4. EE invitation history
-5. BCPNP invitation history
-6. OINP invitation history
-7. Automated official draw-history scraping (EE / BCPNP / OINP)
+1. Federal EE CRS calculator (2026 rules, job offer points removed since 2025-03-25)
+2. BCPNP Skills Immigration 200-point calculator (rules effective 2025-12-04)
+3. OINP EOI calculator (multiple streams)
+4. EE / BCPNP / OINP invitation history (daily auto-updated from official sites)
 
 ## Run Locally
 
 ```bash
 npm install
-npm run dev
+npm run dev       # http://localhost:3000
 ```
 
 ## Build
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
 
 ## Scrape Draw History
@@ -34,40 +31,56 @@ npm run preview
 # Run scraper once (updates data/history_data.json and public/data/history_data.json)
 npm run scrape:history
 
-# Install a daily cron job at 08:15
-npm run scrape:history:install-cron
+# EE only
+node scraper/scraper.js --ee
 ```
-
-Optional parameters:
-
-- `CRON_EXPR="0 7 * * *"` custom cron expression
-- `NODE_BIN=/opt/homebrew/bin/node` custom node path
 
 ## Deployment
 
 ### Vercel (Frontend)
 
-This repo includes `vercel.json`, so you can import and deploy directly on Vercel:
+Next.js is auto-detected by Vercel. Import the repo and deploy — no extra config needed.
 
 - Build Command: `npm run build`
-- Output Directory: `dist`
+- Output Directory: `.next`
 
 ### GitHub Actions (Scheduled Scraper)
 
-This repo includes a scheduled workflow at `.github/workflows/scrape-history.yml`:
+Workflow at `.github/workflows/scrape-history.yml`:
 
-- Schedule: `15 16 * * *` (UTC, once per day)
-- Manual run: `Actions` -> `Scrape Immigration History` -> `Run workflow`
+- Schedule: runs daily at 21:00 UTC
+- Manual run: `Actions` → `Scrape Immigration History` → `Run workflow`
 - Auto commit/push: enabled via `permissions: contents: write`
 
 ## Project Structure
 
-- `src/App.tsx`: main UI and state management
-- `src/lib/calculators.ts`: EE / BCPNP / OINP calculator logic (TypeScript)
-- `src/lib/history.ts`: historical draw data
-- `src/react.css`: Tailwind entry and component-layer styles
-- `tailwind.config.js`: Tailwind config
-- `postcss.config.js`: PostCSS config
+```
+src/
+  app/
+    layout.tsx            # Root layout: nav, footer, JSON-LD, OG metadata
+    opengraph-image.tsx   # Auto-generated OG image (next/og)
+    ee/page.tsx           # EE CRS calculator page
+    bcpnp/page.tsx        # BCPNP calculator page
+    oinp/page.tsx         # OINP EOI calculator page
+    ee-history/page.tsx   # EE invite history (ISR 24h)
+    bcpnp-history/        # BCPNP invite history (ISR 24h)
+    oinp-history/         # OINP invite history (ISR 24h)
+  components/
+    EECalculator.tsx      # EE form + CRS breakdown (client)
+    BCPNPCalculator.tsx   # BCPNP form + breakdown (client)
+    OINPCalculator.tsx    # OINP form + breakdown (client)
+    HistoryTable.tsx      # Draw history table (server)
+    NavBar.tsx            # Navigation with active-link detection
+  lib/
+    calculators.ts        # EE / BCPNP / OINP scoring logic
+    history.ts            # Static fallback draw history data
+scraper/
+  scraper.js              # Node.js scraper (curl-based, bypasses Akamai)
+public/
+  data/history_data.json  # Live draw history (updated by scraper)
+  robots.txt
+  sitemap.xml
+```
 
 ---
 
@@ -75,69 +88,82 @@ This repo includes a scheduled workflow at `.github/workflows/scrape-history.yml
 
 ## 概述
 
-这是一个面向加拿大主流移民通道的实用追踪项目，把算分工具和邀请历史数据整合在同一站点。项目包含一个基于 **React + TypeScript + Vite + Tailwind CSS** 的前端，用于交互式计算与展示；同时包含 Node.js 爬虫，定期抓取 EE / BCPNP / OINP 官网邀请数据。常见部署方式是前端发布到 Vercel，定时爬虫运行在 GitHub Actions。
+面向加拿大主流移民通道的算分与邀请历史追踪工具。前端采用 **Next.js 15（App Router）+ TypeScript + Tailwind CSS**，支持服务端渲染（SSG/ISR），SEO 友好。Node.js 爬虫每日自动抓取 EE / BCPNP / OINP 官网邀请数据，部署在 Vercel + GitHub Actions。
 
 ## 功能
 
-1. 联邦 EE CRS 算分（已按 2025-03-25 后规则处理）
-2. BCPNP Skills Immigration 200 分制算分
-3. OINP EOI 算分
-4. EE 邀请历史
-5. BCPNP 邀请历史
-6. OINP 邀请历史
-7. 官网邀请记录自动抓取（EE / BCPNP / OINP）
+1. 联邦 EE CRS 算分（2026 最新规则，Job Offer 加分已于 2025-03-25 取消）
+2. BCPNP Skills Immigration 200 分制算分（规则有效期：2025-12-04）
+3. OINP EOI 算分（多 Stream）
+4. EE / BCPNP / OINP 邀请历史（每日自动更新）
 
 ## 本地运行
 
 ```bash
 npm install
-npm run dev
+npm run dev       # http://localhost:3000
 ```
 
 ## 构建
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
 
 ## 邀请记录抓取
 
 ```bash
-# 手动抓取一次（会更新 data/history_data.json 与 public/data/history_data.json）
+# 手动抓取一次（更新 data/history_data.json 与 public/data/history_data.json）
 npm run scrape:history
 
-# 安装每天 08:15 自动抓取的 cron 任务
-npm run scrape:history:install-cron
+# 仅抓取 EE
+node scraper/scraper.js --ee
 ```
-
-可选参数：
-
-- `CRON_EXPR="0 7 * * *"` 自定义 cron 时间表达式
-- `NODE_BIN=/opt/homebrew/bin/node` 指定 node 路径
 
 ## 部署
 
 ### Vercel（前端）
 
-仓库已提供 `vercel.json`，可直接在 Vercel 导入项目并部署：
+Vercel 自动识别 Next.js，直接导入仓库部署，无需额外配置。
 
-- Build Command: `npm run build`
-- Output Directory: `dist`
+- Build Command：`npm run build`
+- Output Directory：`.next`
 
 ### GitHub Actions（定时爬虫）
 
-仓库已提供定时工作流 `.github/workflows/scrape-history.yml`：
+工作流位于 `.github/workflows/scrape-history.yml`：
 
-- Schedule: `15 16 * * *`（UTC，每天一次）
-- 手动触发：`Actions` -> `Scrape Immigration History` -> `Run workflow`
+- Schedule：每天 21:00 UTC 自动运行
+- 手动触发：`Actions` → `Scrape Immigration History` → `Run workflow`
 - 自动提交回仓库：已通过 `permissions: contents: write` 启用
 
 ## 目录结构
 
-- `src/App.tsx`：主界面与状态管理
-- `src/lib/calculators.ts`：EE / BCPNP / OINP 计算逻辑（TypeScript）
-- `src/lib/history.ts`：历史邀请数据
-- `src/react.css`：Tailwind 入口与组件层样式
-- `tailwind.config.js`：Tailwind 配置
-- `postcss.config.js`：PostCSS 配置
+```
+src/
+  app/
+    layout.tsx            # 根布局：导航、页脚、JSON-LD、OG metadata
+    opengraph-image.tsx   # 自动生成 OG 预览图（next/og）
+    ee/page.tsx           # 联邦 EE CRS 算分页
+    bcpnp/page.tsx        # BCPNP 算分页
+    oinp/page.tsx         # OINP EOI 算分页
+    ee-history/page.tsx   # EE 邀请历史（ISR 24h）
+    bcpnp-history/        # BCPNP 邀请历史（ISR 24h）
+    oinp-history/         # OINP 邀请历史（ISR 24h）
+  components/
+    EECalculator.tsx      # EE 表单 + CRS 分项展示（客户端组件）
+    BCPNPCalculator.tsx   # BCPNP 表单 + 分项展示（客户端组件）
+    OINPCalculator.tsx    # OINP 表单 + 分项展示（客户端组件）
+    HistoryTable.tsx      # 邀请历史表格（服务端组件）
+    NavBar.tsx            # 导航栏（含当前路由高亮）
+  lib/
+    calculators.ts        # EE / BCPNP / OINP 计算逻辑
+    history.ts            # 静态兜底邀请历史数据
+scraper/
+  scraper.js              # Node.js 爬虫（curl 绕过 Akamai TLS 指纹检测）
+public/
+  data/history_data.json  # 实时邀请数据（由爬虫更新）
+  robots.txt
+  sitemap.xml
+```
