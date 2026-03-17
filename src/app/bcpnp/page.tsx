@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import BCPNPCalculator from '@/components/BCPNPCalculator';
 
-const BASE = 'https://canada-immigration-tracker.vercel.app';
+const BASE = 'https://score.debugcanada.com';
 
 export const metadata: Metadata = {
   title: 'BCPNP Skills Immigration 算分计算器（2025年12月最新规则）',

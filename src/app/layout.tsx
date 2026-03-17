@@ -3,7 +3,7 @@ import './globals.css';
 import NavBar from '@/components/NavBar';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://canada-immigration-tracker.vercel.app'),
+  metadataBase: new URL('https://score.debugcanada.com'),
   title: {
     default: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
     template: '%s | 加拿大移民算分工具'
@@ -37,23 +37,23 @@ export const metadata: Metadata = {
     'max-image-preview': 'large'
   },
   alternates: {
-    canonical: 'https://canada-immigration-tracker.vercel.app/',
+    canonical: 'https://score.debugcanada.com/',
     languages: {
-      'zh-CN': 'https://canada-immigration-tracker.vercel.app/',
-      'en-CA': 'https://canada-immigration-tracker.vercel.app/',
-      'x-default': 'https://canada-immigration-tracker.vercel.app/'
+      'zh-CN': 'https://score.debugcanada.com/',
+      'en-CA': 'https://score.debugcanada.com/',
+      'x-default': 'https://score.debugcanada.com/'
     }
   },
   openGraph: {
     type: 'website',
-    url: 'https://canada-immigration-tracker.vercel.app/',
+    url: 'https://score.debugcanada.com/',
     siteName: '加拿大移民算分 & 邀请历史追踪',
     title: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
     description:
       '免费加拿大移民算分工具（2026最新规则）：EE CRS 分数、BCPNP 200分、OINP EOI 一键计算，邀请历史每日更新。',
     images: [
       {
-        url: 'https://canada-immigration-tracker.vercel.app/og-image.png',
+        url: 'https://score.debugcanada.com/og-image.png',
         width: 1200,
         height: 630,
         alt: '加拿大移民算分工具 - EE CRS / BCPNP / OINP'
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
     description:
       '免费加拿大移民算分工具：EE CRS 分数、BCPNP 200分、OINP EOI 一键计算，邀请历史每日更新。',
-    images: ['https://canada-immigration-tracker.vercel.app/og-image.png']
+    images: ['https://score.debugcanada.com/og-image.png']
   },
   other: {
     'theme-color': '#b91c1c'
@@ -78,17 +78,17 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://canada-immigration-tracker.vercel.app/#website',
-      url: 'https://canada-immigration-tracker.vercel.app/',
+      '@id': 'https://score.debugcanada.com/#website',
+      url: 'https://score.debugcanada.com/',
       name: '加拿大移民算分 & 邀请历史追踪',
       description: '加拿大联邦 EE CRS、BCPNP、OINP 移民算分工具及邀请历史追踪',
       inLanguage: ['zh-CN', 'en-CA']
     },
     {
       '@type': 'WebApplication',
-      '@id': 'https://canada-immigration-tracker.vercel.app/#app',
+      '@id': 'https://score.debugcanada.com/#app',
       name: '加拿大移民算分 & 邀请历史追踪',
-      url: 'https://canada-immigration-tracker.vercel.app/',
+      url: 'https://score.debugcanada.com/',
       description:
         '免费在线工具，计算加拿大联邦 EE CRS 分数、BCPNP Skills Immigration 分数、OINP EOI 分数，并追踪最新邀请历史。',
       applicationCategory: 'UtilityApplication',

@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: 'EE 邀请历史 | Express Entry 抽签记录',
   description:
     'Express Entry 联邦技术移民邀请历史（2024至今）。每日自动从 IRCC 官网抓取最新抽签数据，包含一般类别（General）及各特定类别（STEM、医疗、法语、农业等）最低 CRS 分数和邀请人数。',
-  alternates: { canonical: 'https://canada-immigration-tracker.vercel.app/ee-history' },
-  openGraph: { url: 'https://canada-immigration-tracker.vercel.app/ee-history' }
+  alternates: { canonical: 'https://score.debugcanada.com/ee-history' },
+  openGraph: { url: 'https://score.debugcanada.com/ee-history' }
 };
 
 type LiveHistoryPayload = {
@@ -21,7 +21,7 @@ type LiveHistoryPayload = {
 
 async function getEEHistory(): Promise<{ data: HistoryRecord[]; updated: string | null }> {
   try {
-    const res = await fetch('https://canada-immigration-tracker.vercel.app/data/history_data.json', {
+    const res = await fetch('https://score.debugcanada.com/data/history_data.json', {
       next: { revalidate: 86400 }
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

@@ -87,7 +87,7 @@ export default function OgImage() {
             fontSize: '16px',
           }}
         >
-          canada-immigration-tracker.vercel.app
+          score.debugcanada.com
         </div>
       </div>
     ),

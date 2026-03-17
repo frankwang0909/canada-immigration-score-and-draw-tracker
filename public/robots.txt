@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://canada-immigration-tracker.vercel.app/sitemap.xml
+Sitemap: https://score.debugcanada.com/sitemap.xml

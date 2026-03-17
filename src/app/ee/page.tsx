@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import EECalculator from '@/components/EECalculator';
 
-const BASE = 'https://canada-immigration-tracker.vercel.app';
+const BASE = 'https://score.debugcanada.com';
 
 export const metadata: Metadata = {
   title: '联邦 EE CRS 算分计算器（2026最新规则）',

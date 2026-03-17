@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   title: 'BCPNP 邀请历史 | BC省提名抽签记录',
   description:
     'BC省提名 BCPNP Skills Immigration 邀请历史（2024至今）。每日自动更新，包含各轮次最低注册分数和邀请人数，涵盖 Tech Pilot 及一般类别。',
-  alternates: { canonical: 'https://canada-immigration-tracker.vercel.app/bcpnp-history' },
-  openGraph: { url: 'https://canada-immigration-tracker.vercel.app/bcpnp-history' }
+  alternates: { canonical: 'https://score.debugcanada.com/bcpnp-history' },
+  openGraph: { url: 'https://score.debugcanada.com/bcpnp-history' }
 };
 
 type LiveHistoryPayload = {
@@ -21,7 +21,7 @@ type LiveHistoryPayload = {
 
 async function getBCPNPHistory(): Promise<{ data: HistoryRecord[]; updated: string | null }> {
   try {
-    const res = await fetch('https://canada-immigration-tracker.vercel.app/data/history_data.json', {
+    const res = await fetch('https://score.debugcanada.com/data/history_data.json', {
       next: { revalidate: 86400 }
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

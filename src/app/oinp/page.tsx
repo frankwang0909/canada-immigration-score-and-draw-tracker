@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import OINPCalculator from '@/components/OINPCalculator';
 
-const BASE = 'https://canada-immigration-tracker.vercel.app';
+const BASE = 'https://score.debugcanada.com';
 
 export const metadata: Metadata = {
   title: 'OINP EOI 算分计算器 | 安省提名',
