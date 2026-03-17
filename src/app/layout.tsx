@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     'CRS score',
     '综合排名系统'
   ],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg'
+  },
   authors: [{ name: 'Canada Immigration Score & Draw Tracker' }],
   robots: {
     index: true,
