@@ -110,6 +110,18 @@
     @apply mt-3 text-xs text-zinc-500;
   }
 
+  .app-footer {
+    @apply mt-10 rounded-2xl border border-zinc-200 bg-white/70 px-6 py-5 text-xs text-zinc-500;
+  }
+
+  .app-footer p {
+    @apply leading-relaxed;
+  }
+
+  .app-footer p + p {
+    @apply mt-2;
+  }
+
   .history-table {
     @apply w-full overflow-hidden rounded-xl border border-zinc-200;
     border-collapse: separate;

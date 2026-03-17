@@ -12,13 +12,13 @@ import { BCPNP_HISTORY, EE_HISTORY, OINP_HISTORY, type HistoryRecord } from './l
 
 type Tab = 'ee' | 'bc' | 'oinp' | 'ee_history' | 'bc_history' | 'oinp_history';
 
-const TABS: Array<{ id: Tab; label: string }> = [
-  { id: 'ee', label: '联邦 EE 算分' },
-  { id: 'bc', label: 'BCPNP 算分' },
-  { id: 'oinp', label: 'OINP 算分' },
-  { id: 'ee_history', label: 'EE 邀请历史' },
-  { id: 'bc_history', label: 'BCPNP 邀请历史' },
-  { id: 'oinp_history', label: 'OINP 邀请历史' }
+const TABS: Array<{ id: Tab; label: string; title: string }> = [
+  { id: 'ee', label: '联邦 EE 算分', title: '联邦 EE CRS 算分 | 加拿大移民算分工具' },
+  { id: 'bc', label: 'BCPNP 算分', title: 'BCPNP Skills Immigration 算分 | 加拿大移民算分工具' },
+  { id: 'oinp', label: 'OINP 算分', title: 'OINP EOI 算分 | 加拿大移民算分工具' },
+  { id: 'ee_history', label: 'EE 邀请历史', title: 'EE 邀请历史记录 | 加拿大移民算分工具' },
+  { id: 'bc_history', label: 'BCPNP 邀请历史', title: 'BCPNP 邀请历史记录 | 加拿大移民算分工具' },
+  { id: 'oinp_history', label: 'OINP 邀请历史', title: 'OINP 邀请历史记录 | 加拿大移民算分工具' }
 ];
 
 const defaultEE: EEFormData = {
@@ -159,6 +159,11 @@ export default function App() {
   const eeResult = useMemo(() => calculateCRS(ee), [ee]);
   const bcResult = useMemo(() => calculateBCPNP(bc), [bc]);
   const oinpResult = useMemo(() => calculateOINPEOI(oinp), [oinp]);
+
+  useEffect(() => {
+    const current = TABS.find((t) => t.id === tab);
+    if (current) document.title = current.title;
+  }, [tab]);
 
   useEffect(() => {
     let canceled = false;
@@ -482,6 +487,15 @@ export default function App() {
       {tab === 'ee_history' && <section className="panel"><div className="card"><h2>EE 邀请历史</h2><HistoryTable data={historyData.ee} /></div></section>}
       {tab === 'bc_history' && <section className="panel"><div className="card"><h2>BCPNP 邀请历史</h2><HistoryTable data={historyData.bcpnp} /></div></section>}
       {tab === 'oinp_history' && <section className="panel"><div className="card"><h2>OINP 邀请历史</h2><HistoryTable data={historyData.oinp} /></div></section>}
+
+      <footer className="app-footer">
+        <p>
+          免责声明：本工具所有内容仅供参考，不构成任何移民建议或法律意见。移民政策随时可能变化，计算结果可能与官方系统存在偏差，请以加拿大移民局（IRCC）官方信息为准。如需专业移民指导，请咨询持牌移民顾问（RCIC）或移民律师。
+        </p>
+        <p>
+          Disclaimer: All content on this tool is for informational purposes only and does not constitute immigration advice or legal counsel. Immigration policies are subject to change. Scores are estimates only — please verify with official IRCC sources. Consult a licensed immigration consultant (RCIC) or lawyer for professional guidance.
+        </p>
+      </footer>
     </div>
   );
 }
