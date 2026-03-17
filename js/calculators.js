@@ -171,7 +171,10 @@ function calcSkillTransferability(data) {
     else if (langCLB >= 5) c5 = 25;
   }
 
-  const total = Math.min(100, c1 + c2 + c3 + c4 + c5);
+  const eduGroup     = Math.min(50, c1 + c2);
+  const foreignGroup = Math.min(50, c3 + c4);
+  const certGroup    = Math.min(50, c5);
+  const total = Math.min(100, eduGroup + foreignGroup + certGroup);
   return { c1, c2, c3, c4, c5, total };
 }
 

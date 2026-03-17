@@ -31,12 +31,12 @@ const CRS_TABLES = {
   // 学历得分
   education: {
     noSpouse: {
-      none: 0, high_school: 30, one_year: 84, two_year: 91,
-      bachelors: 112, two_or_more: 119, masters: 126, phd: 140
+      none: 0, high_school: 30, one_year: 90, two_year: 98,
+      bachelors: 120, two_or_more: 128, masters: 135, phd: 150
     },
     spouse: {
-      none: 0, high_school: 28, one_year: 78, two_year: 84,
-      bachelors: 104, two_or_more: 110, masters: 117, phd: 128
+      none: 0, high_school: 28, one_year: 84, two_year: 91,
+      bachelors: 112, two_or_more: 119, masters: 126, phd: 140
     }
   },
 

@@ -1,6 +1,7 @@
 node_modules
 dist
 .vite
+.next
 .DS_Store
 scraper/scraper.log
 scraper/test.json

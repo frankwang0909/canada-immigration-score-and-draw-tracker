@@ -78,12 +78,12 @@ const CRS_TABLES = {
   } as Record<number, number>,
   education: {
     noSpouse: {
-      none: 0, high_school: 30, one_year: 84, two_year: 91,
-      bachelors: 112, two_or_more: 119, masters: 126, phd: 140
+      none: 0, high_school: 30, one_year: 90, two_year: 98,
+      bachelors: 120, two_or_more: 128, masters: 135, phd: 150
     } as Record<string, number>,
     spouse: {
-      none: 0, high_school: 28, one_year: 78, two_year: 84,
-      bachelors: 104, two_or_more: 110, masters: 117, phd: 128
+      none: 0, high_school: 28, one_year: 84, two_year: 91,
+      bachelors: 112, two_or_more: 119, masters: 126, phd: 140
     } as Record<string, number>
   },
   firstLangNoSpouse: { 4: 0, 5: 6, 6: 9, 7: 17, 8: 23, 9: 31, 10: 34 },
@@ -275,7 +275,11 @@ function calcSkillTransferability(data: {
     else if (langCLB >= 5) c5 = 25;
   }
 
-  return { c1, c2, c3, c4, c5, total: Math.min(100, c1 + c2 + c3 + c4 + c5) };
+  // 每组各自上限 50，整体上限 100
+  const eduGroup     = Math.min(50, c1 + c2);
+  const foreignGroup = Math.min(50, c3 + c4);
+  const certGroup    = Math.min(50, c5);
+  return { c1, c2, c3, c4, c5, total: Math.min(100, eduGroup + foreignGroup + certGroup) };
 }
 
 export function calculateCRS(formData: EEFormData) {

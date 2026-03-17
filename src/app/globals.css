@@ -33,11 +33,11 @@
     @apply mt-6 flex flex-wrap gap-2;
   }
 
-  .tab-bar button {
+  .tab-bar a {
     @apply rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-red-300 hover:text-red-700 hover:shadow;
   }
 
-  .tab-bar button.active {
+  .tab-bar a.active {
     @apply border-transparent bg-gradient-to-r from-red-700 to-red-600 text-white shadow;
   }
 
@@ -102,12 +102,48 @@
     @apply space-y-2 text-sm text-zinc-700;
   }
 
+  .crs-section {
+    @apply mb-3 rounded-xl border border-zinc-100 bg-white/70 p-3;
+  }
+
+  .crs-section-title {
+    @apply mb-2 text-xs font-semibold uppercase tracking-wide text-red-700;
+  }
+
+  .crs-row {
+    @apply flex justify-between py-0.5 text-sm text-zinc-700;
+  }
+
+  .crs-indent {
+    @apply pl-4 text-xs text-zinc-500;
+  }
+
+  .crs-group-label {
+    @apply mt-1 text-xs font-medium text-zinc-500;
+  }
+
+  .crs-subtotal {
+    @apply border-t border-zinc-100 pt-1 font-medium text-zinc-800;
+  }
+
+  .crs-total-row {
+    @apply mt-3 flex items-center justify-between rounded-xl bg-red-700 px-4 py-3 text-sm font-bold text-white;
+  }
+
+  .crs-total-row span:last-child {
+    @apply text-2xl font-black;
+  }
+
   .big-number {
     @apply mb-4 text-5xl font-black tracking-tight text-red-700;
   }
 
   .muted {
     @apply mt-3 text-xs text-zinc-500;
+  }
+
+  .calc-btn {
+    @apply mt-5 w-full rounded-xl bg-red-700 py-3 text-base font-bold text-white shadow transition-all hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-md active:translate-y-0 active:bg-red-800;
   }
 
   .app-footer {
