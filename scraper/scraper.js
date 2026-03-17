@@ -16,6 +16,7 @@
 
 const fs      = require('fs');
 const path    = require('path');
+const { execFile } = require('child_process');
 const axios   = require('axios');
 const cheerio = require('cheerio');
 
@@ -35,15 +36,13 @@ const HEADERS = {
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
-// canada.ca Akamai CDN 会返回 Brotli 压缩，需禁用以避免解压失败
-const HEADERS_NO_BROTLI = { ...HEADERS, 'Accept-Encoding': 'identity' };
 
 const DATE_FROM    = '2024-01-01'; // 只输出此日期之后的记录
 
 const RETRY_TIMES  = 3;
 const RETRY_DELAY  = 5000;  // ms
 const TIMEOUT      = 30000; // ms
-const TIMEOUT_IRCC = 60000; // ms
+const TIMEOUT_CURL = 60000; // ms — curl 获取较大文件时用
 
 // ------------------------------------------------------------------
 // 日志
@@ -85,20 +84,29 @@ async function fetchHtml(url) {
   return null;
 }
 
-async function fetchJson(url, timeout = TIMEOUT) {
-  for (let i = 1; i <= RETRY_TIMES; i++) {
-    try {
-      logger.info(`[${i}/${RETRY_TIMES}] GET(JSON) ${url}`);
-      const resp = await axios.get(url, { headers: HEADERS_NO_BROTLI, timeout });
-      return resp.data;
-    } catch (e) {
-      logger.warning(`请求失败: ${e.message}`);
-      if (i < RETRY_TIMES) await sleep(RETRY_DELAY);
-    }
-  }
-  logger.error(`所有重试均失败: ${url}`);
-  return null;
+// canada.ca Akamai CDN 会拦截 Node.js 的 TLS 指纹，改用系统 curl 绕过
+function fetchJsonCurl(url) {
+  return new Promise((resolve) => {
+    const args = ['-s', '--max-time', String(TIMEOUT_CURL / 1000), url];
+    let attempt = 0;
+    const run = () => {
+      attempt++;
+      logger.info(`[${attempt}/${RETRY_TIMES}] GET(curl) ${url}`);
+      execFile('curl', args, { maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
+        if (err) {
+          logger.warning(`请求失败: ${err.message}`);
+          if (attempt < RETRY_TIMES) return setTimeout(run, RETRY_DELAY);
+          logger.error(`所有重试均失败: ${url}`);
+          return resolve(null);
+        }
+        try { resolve(JSON.parse(stdout)); }
+        catch (e) { logger.error(`JSON 解析失败: ${e.message}`); resolve(null); }
+      });
+    };
+    run();
+  });
 }
+
 
 // ------------------------------------------------------------------
 // 日期 / 数字解析
@@ -169,7 +177,7 @@ function pickBetterRecord(a, b) {
 }
 
 // ------------------------------------------------------------------
-// 1. EE (IRCC JSON API)
+// 1. EE (IRCC JSON API, via curl to bypass Akamai TLS fingerprinting)
 // ------------------------------------------------------------------
 const IRCC_JSON_URL = 'https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json';
 
@@ -199,7 +207,7 @@ function normalizeEeType(raw) {
 }
 
 async function scrapeEe() {
-  const data = await fetchJson(IRCC_JSON_URL, TIMEOUT_IRCC);
+  const data = await fetchJsonCurl(IRCC_JSON_URL);
   if (!data) return [];
 
   const records = [];
