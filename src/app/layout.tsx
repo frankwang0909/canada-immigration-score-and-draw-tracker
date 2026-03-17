@@ -7,8 +7,8 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   metadataBase: new URL('https://score.debugcanada.com'),
   title: {
-    default: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
-    template: '%s | 加拿大移民算分工具'
+    default: '加拿大移民算分计算器 & 邀请历史 | EE CRS / BCPNP / OINP 2026',
+    template: '%s | 加拿大移民算分计算器'
   },
   description:
     '免费加拿大移民算分工具（2026最新规则）：联邦 Express Entry CRS 分数、BCPNP Skills Immigration 200分、OINP EOI 分数一键计算。EE/BCPNP/OINP 邀请历史每日自动更新，数据来自 IRCC 官网。Canada immigration CRS score calculator, draw history tracker.',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
     apple: '/favicon.svg'
   },
-  authors: [{ name: 'Canada Immigration Score & Draw Tracker' }],
+  authors: [{ name: 'Canada Immigration Score Calculator & Draw Tracker' }],
   robots: {
     index: true,
     follow: true,
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://score.debugcanada.com/',
-    siteName: '加拿大移民算分 & 邀请历史追踪',
-    title: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
+    siteName: '加拿大移民算分计算器 & 邀请历史追踪',
+    title: '加拿大移民算分计算器 & 邀请历史 | EE CRS / BCPNP / OINP 2026',
     description:
       '免费加拿大移民算分工具（2026最新规则）：EE CRS 分数、BCPNP 200分、OINP EOI 一键计算，邀请历史每日更新。',
     images: [
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '加拿大移民算分 & 邀请历史 | EE CRS / BCPNP / OINP 计算器 2026',
+    title: '加拿大移民算分计算器 & 邀请历史 | EE CRS / BCPNP / OINP 2026',
     description:
-      '免费加拿大移民算分工具：EE CRS 分数、BCPNP 200分、OINP EOI 一键计算，邀请历史每日更新。',
+      '免费加拿大移民算分计算器：EE CRS 分数、BCPNP 200分、OINP EOI 一键计算，邀请历史每日更新。',
     images: ['https://score.debugcanada.com/og-image.png']
   },
   other: {
@@ -87,14 +87,14 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': 'https://score.debugcanada.com/#website',
       url: 'https://score.debugcanada.com/',
-      name: '加拿大移民算分 & 邀请历史追踪',
+      name: '加拿大移民算分计算器 & 邀请历史追踪',
       description: '加拿大联邦 EE CRS、BCPNP、OINP 移民算分工具及邀请历史追踪',
       inLanguage: ['zh-CN', 'en-CA']
     },
     {
       '@type': 'WebApplication',
       '@id': 'https://score.debugcanada.com/#app',
-      name: '加拿大移民算分 & 邀请历史追踪',
+      name: '加拿大移民算分计算器 & 邀请历史追踪',
       url: 'https://score.debugcanada.com/',
       description:
         '免费在线工具，计算加拿大联邦 EE CRS 分数、BCPNP Skills Immigration 分数、OINP EOI 分数，并追踪最新邀请历史。',
@@ -131,8 +131,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="app-shell">
           <header className="app-header">
-            <h1>Canada Immigration Score &amp; Draw Tracker</h1>
-            <p className="header-subtitle">加拿大移民算分 &amp; 邀请历史追踪</p>
+            <h1>Canada Immigration Score Calculator &amp; Draw Tracker</h1>
+            <p className="header-subtitle">加拿大移民算分计算器 &amp; 邀请历史追踪</p>
           </header>
           <NavBar />
           <main>{children}</main>

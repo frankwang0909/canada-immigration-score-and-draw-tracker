@@ -1,4 +1,4 @@
-# Canada Immigration Score & Draw Tracker
+# Canada Immigration Score Calculator & Draw Tracker
 
 ## Overview
 
