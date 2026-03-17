@@ -34,7 +34,8 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
-    apple: '/favicon.svg'
+    apple: '/favicon.svg',
+    other: { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }
   },
   authors: [{ name: 'Canada Immigration Score Calculator & Draw Tracker' }],
   robots: {
