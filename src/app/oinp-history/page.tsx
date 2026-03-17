@@ -5,9 +5,11 @@ import HistoryTable from '@/components/HistoryTable';
 export const revalidate = 86400; // 24h ISR
 
 export const metadata: Metadata = {
-  title: 'OINP 邀请历史',
+  title: 'OINP 邀请历史 | 安省提名抽签记录',
   description:
-    '安省提名 OINP 邀请历史记录。每日自动更新，包含各 Stream 邀请轮次、最低 EOI 分数和邀请人数。'
+    '安省提名 OINP 邀请历史（2024至今）。每日自动更新，包含各 Stream 邀请轮次、最低 EOI 分数和邀请人数，含 Employer Job Offer、Masters/PhD Graduate 等类别。',
+  alternates: { canonical: 'https://canada-immigration-tracker.vercel.app/oinp-history' },
+  openGraph: { url: 'https://canada-immigration-tracker.vercel.app/oinp-history' }
 };
 
 type LiveHistoryPayload = {

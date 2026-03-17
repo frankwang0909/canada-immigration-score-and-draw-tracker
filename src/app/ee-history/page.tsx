@@ -5,9 +5,11 @@ import HistoryTable from '@/components/HistoryTable';
 export const revalidate = 86400; // 24h ISR
 
 export const metadata: Metadata = {
-  title: 'EE 邀请历史',
+  title: 'EE 邀请历史 | Express Entry 抽签记录',
   description:
-    'Express Entry 联邦技术移民邀请历史记录。每日自动从 IRCC 官网抓取最新 EE 抽签数据，包括各类别最低 CRS 分数和邀请人数。'
+    'Express Entry 联邦技术移民邀请历史（2024至今）。每日自动从 IRCC 官网抓取最新抽签数据，包含一般类别（General）及各特定类别（STEM、医疗、法语、农业等）最低 CRS 分数和邀请人数。',
+  alternates: { canonical: 'https://canada-immigration-tracker.vercel.app/ee-history' },
+  openGraph: { url: 'https://canada-immigration-tracker.vercel.app/ee-history' }
 };
 
 type LiveHistoryPayload = {

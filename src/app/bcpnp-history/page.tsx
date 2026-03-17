@@ -5,9 +5,11 @@ import HistoryTable from '@/components/HistoryTable';
 export const revalidate = 86400; // 24h ISR
 
 export const metadata: Metadata = {
-  title: 'BCPNP 邀请历史',
+  title: 'BCPNP 邀请历史 | BC省提名抽签记录',
   description:
-    'BC省提名 BCPNP Skills Immigration 邀请历史记录。每日自动更新，包含各轮次最低注册分数和邀请人数。'
+    'BC省提名 BCPNP Skills Immigration 邀请历史（2024至今）。每日自动更新，包含各轮次最低注册分数和邀请人数，涵盖 Tech Pilot 及一般类别。',
+  alternates: { canonical: 'https://canada-immigration-tracker.vercel.app/bcpnp-history' },
+  openGraph: { url: 'https://canada-immigration-tracker.vercel.app/bcpnp-history' }
 };
 
 type LiveHistoryPayload = {

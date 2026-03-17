@@ -82,11 +82,7 @@ const jsonLd = {
       url: 'https://canada-immigration-tracker.vercel.app/',
       name: '加拿大移民算分 & 邀请历史追踪',
       description: '加拿大联邦 EE CRS、BCPNP、OINP 移民算分工具及邀请历史追踪',
-      inLanguage: ['zh-CN', 'en-CA'],
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://canada-immigration-tracker.vercel.app/'
-      }
+      inLanguage: ['zh-CN', 'en-CA']
     },
     {
       '@type': 'WebApplication',
@@ -111,59 +107,6 @@ const jsonLd = {
         'EE 邀请历史（官网每日自动抓取）',
         'BCPNP 邀请历史（官网每日自动抓取）',
         'OINP 邀请历史（官网每日自动抓取）'
-      ]
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: '如何计算 Express Entry CRS 分数？',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: '综合排名系统（CRS）满分 1,200 分，由四部分组成：A 核心人力资本因素（年龄、学历、语言、加拿大工作经验），B 配偶因素，C 技能可转换因素，D 附加分（省提名、加拿大学历、在加兄弟姐妹、法语加分）。本工具依据 IRCC 最新规则免费计算您的 CRS 分数。'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'BCPNP Skills Immigration 如何计分？',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'BCPNP Skills Immigration 注册评分满分 200 分，分为人力资本因素（最高 120 分，含直接相关工作经验 40 分、教育 40 分、语言 40 分）和经济因素（最高 80 分，含 BC 职位时薪 55 分、工作地区 25 分）。规则依据 2025 年 12 月 4 日生效版本。'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'OINP EOI 如何计分？',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: '安省提名 OINP EOI 按所选 Stream 计分，评分因素包括：职位 NOC TEER、职业大类、时薪、工签状态、在职时长、税务收入、学历、专业领域、加拿大教育经历、语言能力和地区化加分。不同 Stream 适用的因素不同。'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'EE 邀请数据多久更新一次？',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: '本工具通过 GitHub Actions 每天自动抓取 IRCC 官网最新邀请数据，通常在每次 EE 抽签后数小时内完成更新。数据来源为加拿大移民局（IRCC）官方网站。'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: '2026 年 EE 最低 CRS 分数是多少？',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'EE 最低邀请分数因抽签轮次和类别而异，近期一般类别（General）约在 480–530 分之间，特定项目类别（如医疗卫生、STEM、法语）分数更低。请查看本站邀请历史页面了解最新数据。'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'What is the minimum CRS score to get an ITA in 2026?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'The minimum CRS score for an Invitation to Apply (ITA) varies by round. General draws typically require 480–530+ points. Category-based draws (healthcare, STEM, French language, etc.) often have lower cutoffs. Check our draw history tracker for the latest rounds.'
-          }
-        }
       ]
     }
   ]
