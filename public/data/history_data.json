@@ -1,6 +1,12 @@
 {
-  "updated": "2026-04-01 21:50:42 UTC",
+  "updated": "2026-04-02 21:45:22 UTC",
   "ee": [
+    {
+      "date": "2026-04-02",
+      "type": "Trades Occupations, 2026-Versi",
+      "cutoff": 477,
+      "invited": 3000
+    },
     {
       "date": "2026-03-31",
       "type": "CEC",
