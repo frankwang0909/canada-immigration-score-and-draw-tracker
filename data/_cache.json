@@ -1,6 +1,54 @@
 {
   "oinp": [
     {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 43,
+      "invited": 15
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 35,
+      "invited": 81
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 46,
+      "invited": 1123
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 20,
+      "invited": 512
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 63,
+      "invited": 41
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 57,
+      "invited": 16
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 25,
+      "invited": 24
+    },
+    {
+      "date": "2026-04-08",
+      "type": "雇主担保",
+      "cutoff": 33,
+      "invited": 7
+    },
+    {
       "date": "2026-04-01",
       "type": "雇主担保",
       "cutoff": 56,
