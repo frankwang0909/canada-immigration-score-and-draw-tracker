@@ -1,6 +1,12 @@
 {
-  "updated": "2026-04-12 21:41:44 UTC",
+  "updated": "2026-04-13 21:55:11 UTC",
   "ee": [
+    {
+      "date": "2026-04-13",
+      "type": "PNP",
+      "cutoff": 786,
+      "invited": 324
+    },
     {
       "date": "2026-04-02",
       "type": "Trades Occupations, 2026-Versi",
