@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-05-27",
+      "type": "CEC",
+      "cutoff": 518,
+      "invited": 3000
+    },
+    {
       "date": "2026-05-25",
       "type": "PNP",
       "cutoff": 805,
