@@ -1,6 +1,12 @@
 {
-  "updated": "2026-06-24 22:22:27 UTC",
+  "updated": "2026-06-25 22:24:28 UTC",
   "ee": [
+    {
+      "date": "2026-06-25",
+      "type": "医疗卫生",
+      "cutoff": 475,
+      "invited": 4000
+    },
     {
       "date": "2026-06-24",
       "type": "Physicians with Canadian Work",
