@@ -1,6 +1,12 @@
 {
-  "updated": "2026-07-22 22:09:11 UTC",
+  "updated": "2026-07-23 22:08:47 UTC",
   "ee": [
+    {
+      "date": "2026-07-23",
+      "type": "Skilled Military Recruits, 202",
+      "cutoff": 368,
+      "invited": 4
+    },
     {
       "date": "2026-07-22",
       "type": "法语",
