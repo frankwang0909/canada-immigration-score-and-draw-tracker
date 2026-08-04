@@ -1,6 +1,12 @@
 {
-  "updated": "2026-08-03 22:11:53 UTC",
+  "updated": "2026-08-04 22:17:19 UTC",
   "ee": [
+    {
+      "date": "2026-08-04",
+      "type": "PNP",
+      "cutoff": 768,
+      "invited": 507
+    },
     {
       "date": "2026-07-23",
       "type": "Skilled Military Recruits, 202",

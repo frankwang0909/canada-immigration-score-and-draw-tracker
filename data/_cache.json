@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-08-04",
+      "type": "PNP",
+      "cutoff": 768,
+      "invited": 507
+    },
+    {
       "date": "2026-07-23",
       "type": "Skilled Military Recruits, 202",
       "cutoff": 368,
