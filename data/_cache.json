@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-09-03",
+      "type": "Physicians with Canadian Work",
+      "cutoff": 198,
+      "invited": 229
+    },
+    {
       "date": "2026-09-01",
       "type": "CEC",
       "cutoff": 521,
