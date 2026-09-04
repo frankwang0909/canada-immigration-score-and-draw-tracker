@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-09-04",
+      "type": "医疗卫生",
+      "cutoff": 475,
+      "invited": 3500
+    },
+    {
       "date": "2026-09-03",
       "type": "Physicians with Canadian Work",
       "cutoff": 198,
