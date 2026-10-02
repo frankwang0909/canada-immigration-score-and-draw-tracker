@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-10-01",
+      "type": "Trades Occupations, 2026-Versi",
+      "cutoff": 476,
+      "invited": 3500
+    },
+    {
       "date": "2026-09-29",
       "type": "CEC",
       "cutoff": 518,
