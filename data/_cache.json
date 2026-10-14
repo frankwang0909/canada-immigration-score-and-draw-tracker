@@ -837,6 +837,12 @@
   ],
   "ee": [
     {
+      "date": "2026-10-13",
+      "type": "PNP",
+      "cutoff": 772,
+      "invited": 752
+    },
+    {
       "date": "2026-10-01",
       "type": "Trades Occupations, 2026-Versi",
       "cutoff": 476,
