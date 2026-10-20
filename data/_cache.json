@@ -2009,6 +2009,18 @@
   ],
   "bcpnp": [
     {
+      "date": "2026-10-20",
+      "type": "创业移民(Base)",
+      "cutoff": 118,
+      "invited": 10
+    },
+    {
+      "date": "2026-10-20",
+      "type": "创业移民(区域)",
+      "cutoff": 118,
+      "invited": null
+    },
+    {
       "date": "2026-09-22",
       "type": "创业移民(Base)",
       "cutoff": 119,
