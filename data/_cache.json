@@ -2027,6 +2027,18 @@
   ],
   "bcpnp": [
     {
+      "date": "2026-11-17",
+      "type": "创业移民(Base)",
+      "cutoff": 117,
+      "invited": 12
+    },
+    {
+      "date": "2026-11-17",
+      "type": "创业移民(区域)",
+      "cutoff": 117,
+      "invited": null
+    },
+    {
       "date": "2026-10-20",
       "type": "创业移民(Base)",
       "cutoff": 118,
